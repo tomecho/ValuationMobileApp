@@ -2,8 +2,9 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 6132,
-  "expoServerNgrokUrl": "https://2x-bwi.anonymous.valuationmobileapp.exp.direct",
-  "packagerNgrokUrl": "https://packager.2x-bwi.anonymous.valuationmobileapp.exp.direct",
-  "ngrokPid": 8356
+  "packagerPid": 21252,
+  "expoServerNgrokUrl": "https://2x-bwi.tom-echo.valuationmobileapp.exp.direct",
+  "packagerNgrokUrl": "https://packager.2x-bwi.tom-echo.valuationmobileapp.exp.direct",
+  "ngrokPid": 6428,
+  "webpackServerPort": null
 }
