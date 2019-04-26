@@ -3,17 +3,18 @@ import { Button, ImagePickerIOS, Text } from 'react-native';
 
 export class Uploader extends React.Component {
   static defaultProps = {
-
+    onChange: () => undefined,
   }
 
   _handleImageUpload = () => {
-    // CameraRoll.getPhotos({
-    //   assetType: "Photos",
-    //   first: 20
-    // }).then(r => {
-    //   this.setState({ photos: r.edges });
-    // });
-    ImagePickerIOS.openSelectDialog();
+    ImagePickerIOS.openSelectDialog(
+      {
+        showImages: true,
+        showVideos: false,
+      },
+      this.props.onChange,
+      console.error
+    );
   }
 
   render() {
