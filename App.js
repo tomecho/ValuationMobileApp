@@ -2,13 +2,16 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Uploader } from './components/Uploader';
 import { identifyRequest } from './services/identityWrapperService';
+import { readImageUri } from './services/fileImageService';
 
 export default class App extends React.Component {
-
-
   componentDidUpdate() {
     if (this.state.uri) {
-      identifyRequest(this.state.uri);
+      debugger;
+      readImageUri(this.state.uri).then(result => {
+        this.setState({ file: result });
+      });
+      // identifyRequest(this.state.uri);
     }
   }
 
