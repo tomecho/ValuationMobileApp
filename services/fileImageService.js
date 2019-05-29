@@ -1,5 +1,5 @@
-import { readFile } from 'react-native-fs';
+import { FileSystem } from 'expo';
 
 export function readImageUri(uri) {
-  return readFile(uri);
+  return FileSystem.readAsStringAsync(uri);
 }

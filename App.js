@@ -9,6 +9,7 @@ export default class App extends React.Component {
     if (this.state.uri) {
       debugger;
       readImageUri(this.state.uri).then(result => {
+        debugger;
         this.setState({ file: result });
       });
       // identifyRequest(this.state.uri);
