@@ -3,7 +3,6 @@ import { Permissions } from 'expo';
 import { StyleSheet, View, ActivityIndicator } from 'react-native';
 import { Uploader } from './components/Uploader';
 import { identifyRequest } from './services/identityWrapperService';
-import { readImageUri } from './services/fileImageService';
 
 export default class App extends React.Component {
   constructor(props) {
