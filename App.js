@@ -6,20 +6,15 @@ import { readImageUri } from './services/fileImageService';
 
 export default class App extends React.Component {
   componentDidUpdate() {
-    if (this.state.uri) {
-      debugger;
-      readImageUri(this.state.uri).then(result => {
-        debugger;
-        this.setState({ file: result });
-      });
-      // identifyRequest(this.state.uri);
+    if (this.state.base64Image) {
+      identifyRequest(this.state.base64Image);
     }
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <Uploader onChange={uri => this.setState({ uri })} />
+        <Uploader onChange={({ base64 }) => this.setState({ base64Image })} />
       </View>
     );
   }

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button, ImagePickerIOS, Text } from 'react-native';
+import { Button, Text } from 'react-native';
+import { ImagePicker } from 'expo';
 
 export class Uploader extends React.Component {
   static defaultProps = {
@@ -7,14 +8,9 @@ export class Uploader extends React.Component {
   }
 
   _handleImageUpload = () => {
-    ImagePickerIOS.openSelectDialog(
-      {
-        showImages: true,
-        showVideos: false,
-      },
-      this.props.onChange,
-      console.error
-    );
+    ImagePicker.launchImageLibraryAsync({
+      base64: true
+    }).then(onChange);
   }
 
   render() {
