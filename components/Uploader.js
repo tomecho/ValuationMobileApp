@@ -10,7 +10,7 @@ export class Uploader extends React.Component {
   _handleImageUpload = () => {
     ImagePicker.launchImageLibraryAsync({
       base64: true
-    }).then(onChange);
+    }).then(this.props.onChange);
   }
 
   render() {
