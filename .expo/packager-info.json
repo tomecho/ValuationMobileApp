@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 11504,
-  "expoServerNgrokUrl": "https://nx-4ne.tom-echo.valuationmobileapp.exp.direct",
-  "packagerNgrokUrl": "https://packager.nx-4ne.tom-echo.valuationmobileapp.exp.direct",
-  "ngrokPid": 15540
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }
