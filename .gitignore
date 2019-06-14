@@ -1,2 +1,4 @@
 node_modules/
 system-images/
+.env
+secrets.js

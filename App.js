@@ -1,6 +1,6 @@
 import React from 'react';
 import { Permissions } from 'expo';
-import { StyleSheet, View, ActivityIndicator } from 'react-native';
+import { Text, StyleSheet, View, ActivityIndicator } from 'react-native';
 import { Uploader } from './components/Uploader';
 import { identifyRequest } from './services/identityWrapperService';
 
@@ -27,7 +27,9 @@ export default class App extends React.Component {
 
   componentDidUpdate() {
     if (this.state.base64Image) {
-      identifyRequest(this.state.base64Image);
+      identifyRequest(this.state.base64Image).then(prediction => {
+        this.setState({ prediction });
+      });
     }
   }
 
@@ -37,6 +39,10 @@ export default class App extends React.Component {
         { this.state.loading 
           ? <ActivityIndicator />
           : <Uploader onChange={({ base64 }) => this.setState({ base64Image: base64 })} />
+        }
+
+        { this.state.base64Image &&
+          <Text>{ this.state.prediction || "Loading..." }</Text>
         }
         
       </View>
