@@ -7,4 +7,12 @@ describe("identityWrapperService", () => {
     const suggestion = await identifyRequest(fakeImage);
     expect(suggestion).toEqual(expect.any(String))
   });
+
+  it("throws when passed invalid image", () => {
+    return new Promise((resolve, reject) => {
+      identifyRequest("notanimage")
+        .then(reject)
+        .catch(resolve);
+    });
+  })
 });
