@@ -2,7 +2,7 @@ import React from 'react';
 import { Permissions } from 'expo';
 import { Text, StyleSheet, View, ActivityIndicator } from 'react-native';
 import { Uploader } from './components/Uploader';
-import { identifyRequest } from './services/identityWrapperService';
+import { identifyRequest } from './services/identity';
 
 export default class App extends React.Component {
   constructor(props) {
