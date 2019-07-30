@@ -17,10 +17,11 @@ export async function valuate(identity) {
       grant_type: 'client_credentials',
       //you may need to define the oauth scope
       scope: 'https://api.ebay.com/oauth/api_scope'
-    }
+    },
+    env: "SANDBOX"
   });
 
-  ebay
-
-
+  await ebay.getAccessToken();
+  const results = await ebay.searchItems({ keyword: identity, limit: '20' });
+  debugger;
 }
