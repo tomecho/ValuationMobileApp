@@ -13,6 +13,6 @@ describe("valutationWrapperService", () => {
 
   it("returns a number", async () => {
     const value = await valuate("osprey atmos ag 50");
-    expect(value).toBeA("number")
+    expect(value).toBeInstanceOf(Number)
   });
 }); 
