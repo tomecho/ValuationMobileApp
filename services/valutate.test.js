@@ -3,11 +3,11 @@ import { valuate } from "./valuate";
 describe("valutationWrapperService", () => {
   describe("requires identity", () => {
     it("throws an err if identity is undef", () => {
-      expect(async () => await valuate(undefined)).toThrow();
+      return new Promise((resolve, reject) => valuate(undefined).then(reject, resolve));
     });
 
     it("throws an err if identity is empty", () => {
-      expect(async () => await valuate("")).toThrow();
+      return new Promise((resolve, reject) => valuate("").then(reject, resolve));
     });
   });
 
