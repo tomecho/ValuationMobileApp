@@ -6,22 +6,23 @@ export async function valuate(identity) {
     throw new Error("identity required");
   }
 
-  // GET https://api.ebay.com/buy/browse/v1/item_summary/search?
-  // q="identity"&
-  // filter=FilterField&
-  // sort=SortField&
   const ebay = new Ebay({
-    clientID: ebayCredentials.appId,
-    clientSecret: ebayCredentials.certId,
+    clientID: ebayCredentials.production.appId,
+    clientSecret: ebayCredentials.production.certId,
     body: {
       grant_type: 'client_credentials',
       //you may need to define the oauth scope
       scope: 'https://api.ebay.com/oauth/api_scope'
     },
-    env: "SANDBOX"
+    env: "PRODUCTION"
   });
 
   await ebay.getAccessToken();
-  const results = await ebay.searchItems({ keyword: identity, limit: '20' });
-  debugger;
+  const resultsJson = await ebay.searchItems({ keyword: identity, limit: '20' });
+  const resultsObj = JSON.parse(resultsJson);
+  return parseSearchItems(resultsObj);
+}
+
+function parseSearchItems(searchResults) {
+  return searchResults.itemSummaries.reduce((priceSum, item) => priceSum + Number(item.price.value), 0)
 }
