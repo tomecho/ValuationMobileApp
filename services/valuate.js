@@ -24,5 +24,6 @@ export async function valuate(identity) {
 }
 
 function parseSearchItems(searchResults) {
-  return searchResults.itemSummaries.reduce((priceSum, item) => priceSum + Number(item.price.value), 0)
+  const total = searchResults.itemSummaries.reduce((priceSum, item) => priceSum + Number(item.price.value), 0);
+  return total / searchResults.itemSummaries.length
 }

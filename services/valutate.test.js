@@ -15,4 +15,10 @@ describe("valutationWrapperService", () => {
     const value = await valuate("osprey atmos ag 50");
     expect(typeof value).toBe("number");
   });
+
+  it("returns a reasonable price", async () => {
+    const value = await valuate("osprey atmos ag 50");
+    expect(value).toBeGreaterThan(20);
+    expect(value).toBeLessThan(300);
+  });
 }); 
