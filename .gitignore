@@ -1,4 +1,4 @@
-node_modules/
-system-images/
+**/node_modules/
+**/system-images/
 .env
 secrets.js
