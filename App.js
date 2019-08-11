@@ -3,6 +3,7 @@ import { Permissions } from 'expo';
 import { Text, StyleSheet, View, ActivityIndicator } from 'react-native';
 import { Uploader } from './components/Uploader';
 import { identifyRequest } from './services/identity';
+import { valuate } from './services/valuate';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -13,7 +14,7 @@ export default class App extends React.Component {
     }
   }
 
-  componentDidMount() {
+  aquirePermissions() {
     Permissions.getAsync(Permissions.CAMERA_ROLL).then(permission => {
       if (permission.status !== 'granted') {
         Permissions.askAsync(Permissions.CAMERA_ROLL).then(() => {
@@ -25,11 +26,20 @@ export default class App extends React.Component {
     });
   }
 
+  componentDidMount() {
+    this.aquirePermissions();
+  }
+
   componentDidUpdate() {
     if (this.state.base64Image) {
-      identifyRequest(this.state.base64Image).then(prediction => {
-        this.setState({ prediction });
-      });
+      identifyRequest(this.state.base64Image)
+        .then(prediction => {
+          this.setState({ prediction });
+          return valuate(prediction);
+        })
+        .then(value => 
+          this.setState({ value })  
+        );
     }
   }
 
@@ -42,9 +52,12 @@ export default class App extends React.Component {
         }
 
         { this.state.base64Image &&
-          <Text>{ this.state.prediction || "Loading..." }</Text>
+          <Text>{ this.state.prediction || "Loading Prediction..." }</Text>
         }
         
+        { this.state.prediction &&
+          <Text>{ this.state.value || "Loading Value..." }</Text>
+        }
       </View>
     );
   }
