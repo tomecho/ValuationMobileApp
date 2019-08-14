@@ -1,6 +1,6 @@
 import { valuate } from "./valuate";
 
-describe("valutationWrapperService", () => {
+describe("valuationWrapperService", () => {
   describe("requires identity", () => {
     it("throws an err if identity is undef", () => {
       return new Promise((resolve, reject) => valuate(undefined).then(reject, resolve));
