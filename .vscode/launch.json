@@ -4,23 +4,11 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Jest All",
-      "program": "${workspaceFolder}/node_modules/.bin/jest",
-      "args": ["--runInBand"],
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "disableOptimisticBPs": true,
-      "windows": {
-        "program": "${workspaceFolder}/node_modules/jest/bin/jest",
-      }
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "Jest Current File",
-      "program": "${workspaceFolder}/node_modules/.bin/jest",
+      "name": "Jest Mobile",
+      "cwd": "${workspaceFolder}\\mobile",
+      "program": "${workspaceFolder}\\mobile\\node_modules\\bin\\jest.js",
       "args": [
-        "${fileBasenameNoExtension}",
+        "--runInBand",
         "--config",
         "jest.config.js"
       ],
@@ -28,7 +16,26 @@
       "internalConsoleOptions": "neverOpen",
       "disableOptimisticBPs": true,
       "windows": {
-        "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+        "program": "${workspaceFolder}/mobile/node_modules/jest/bin/jest",
+      }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Jest Mobile Current File",
+      "cwd": "${workspaceFolder}\\mobile",
+      "program": "${workspaceFolder}\\mobile\\node_modules\\bin\\jest.js",
+      "args": [
+        "${fileBasenameNoExtension}",
+        "--runInBand",
+        "--config",
+        "jest.config.js"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "disableOptimisticBPs": true,
+      "windows": {
+        "program": "${workspaceFolder}/mobile/node_modules/jest/bin/jest",
       }
     }
   ]
