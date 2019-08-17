@@ -37,6 +37,24 @@
       "windows": {
         "program": "${workspaceFolder}/mobile/node_modules/jest/bin/jest",
       }
-    }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Jest Server",
+      "cwd": "${workspaceFolder}\\server",
+      "program": "${workspaceFolder}\\server\\node_modules\\bin\\jest.js",
+      "args": [
+        "--runInBand",
+        "--config",
+        "jest.config.js"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "disableOptimisticBPs": true,
+      "windows": {
+        "program": "${workspaceFolder}/server/node_modules/jest/bin/jest",
+      }
+    },
   ]
 }

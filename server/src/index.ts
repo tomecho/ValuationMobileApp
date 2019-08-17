@@ -1,8 +1,8 @@
 import express from "express";
 
-import { valuate } from "./valuate";
+import { valuate } from "./services/valuate";
 
-const app = express();
+export const app = express();
 
 app.post("/valuate", (req, res) => {
   // todo handle it
