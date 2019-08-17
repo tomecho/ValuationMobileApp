@@ -8,6 +8,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "ebay-node-api": "^2.5.7",
     "express": "^4.17.1",
     "supertest": "^4.0.2",
     "ts-jest": "^24.0.2",

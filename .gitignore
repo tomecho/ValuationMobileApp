@@ -2,3 +2,4 @@
 **/system-images/
 .env
 secrets.js
+secrets.ts

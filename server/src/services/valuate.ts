@@ -1,5 +1,5 @@
-const Ebay = require("ebay-node-api");
-const { ebayCredentials } = require("../secrets");
+import Ebay from "ebay-node-api";
+import { ebayCredentials } from "../secrets";
 
 export async function valuate(identity) {
   if (!identity || identity.length == 0) {

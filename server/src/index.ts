@@ -6,6 +6,7 @@ export const app = express();
 
 app.post("/valuate", (req, res) => {
   // todo handle it
+  res.send();
 });
 
 app.post("/identify", (req, res) => {
