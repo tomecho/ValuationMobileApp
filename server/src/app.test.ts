@@ -15,17 +15,17 @@ describe("app", () => {
         .post("/valuate")
         .send({ identity: null })
         .expect(400, done);
-    })
+    });
 
     it("returns a value", done => {
       return request(app)
         .post("/valuate")
-        .send({ identity: "osprey atmos ag 50"})
+        .send({ identity: "osprey atmos ag 50" })
         .expect(res => {
           expect(res.body.value).toBeGreaterThan(20);
           expect(res.body.value).toBeLessThan(300);
-          expect(res.status).toEqual(200);
-        }, done);
+        })
+        .expect(200, done);
     });
   });
 });
