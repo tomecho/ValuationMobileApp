@@ -25,7 +25,7 @@ describe("app", () => {
           expect(res.body.value).toBeGreaterThan(20);
           expect(res.body.value).toBeLessThan(300);
           expect(res.status).toEqual(200);
-        });
+        }, done);
     });
   });
 });
