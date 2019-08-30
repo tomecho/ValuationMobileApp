@@ -3,7 +3,6 @@ import { Permissions } from 'expo';
 import { Text, StyleSheet, View, ActivityIndicator } from 'react-native';
 import { Uploader } from './components/Uploader';
 import { identifyRequest } from './services/identity';
-import { valuate } from './services/valuate';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -14,7 +13,7 @@ export default class App extends React.Component {
     }
   }
 
-  aquirePermissions() {
+  acquirePermissions() {
     Permissions.getAsync(Permissions.CAMERA_ROLL).then(permission => {
       if (permission.status !== 'granted') {
         Permissions.askAsync(Permissions.CAMERA_ROLL).then(() => {
@@ -27,7 +26,7 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    this.aquirePermissions();
+    this.acquirePermissions();
   }
 
   componentDidUpdate() {
