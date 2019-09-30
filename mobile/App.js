@@ -3,6 +3,7 @@ import { Permissions } from 'expo';
 import { Text, StyleSheet, View, ActivityIndicator } from 'react-native';
 import { Uploader } from './components/Uploader';
 import { identifyRequest } from './services/identity';
+import { valuate } from './services/valuate';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -34,11 +35,11 @@ export default class App extends React.Component {
       identifyRequest(this.state.base64Image)
         .then(prediction => {
           this.setState({ prediction });
-          return Promise.resolve(0); // valuate(prediction);
+          return valuate(prediction);
         })
-        .then(value => 
-          this.setState({ value })  
-        );
+        .then(value => {
+          this.setState({ value });
+        });
     }
   }
 
