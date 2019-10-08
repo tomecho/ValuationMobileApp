@@ -2,7 +2,7 @@ import React from 'react';
 import { Permissions } from 'expo';
 import { Text, StyleSheet, View, ActivityIndicator } from 'react-native';
 import { Uploader } from './components/Uploader';
-import { identifyRequest } from './services/identity';
+import { identify } from './services/identity';
 import { valuate } from './services/valuate';
 
 export default class App extends React.Component {
@@ -32,7 +32,7 @@ export default class App extends React.Component {
 
   componentDidUpdate() {
     if (this.state.base64Image) {
-      identifyRequest(this.state.base64Image)
+      identify(this.state.base64Image)
         .then(prediction => {
           this.setState({ prediction });
           return valuate(prediction);
