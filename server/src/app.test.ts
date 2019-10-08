@@ -1,5 +1,6 @@
 import request from "supertest";
 import { app } from "./app";
+import { testImageBase64 } from "./testImage";
 
 describe("app", () => {
   describe("valuate", () => {
@@ -33,8 +34,18 @@ describe("app", () => {
     it("returns 400 if the image is missing", done => {
       return request(app)
         .post("/identify")
-        .send({ })
+        .send({ image: null })
         .expect(400, done)
+    });
+
+    it("returns an identity", done => {
+      return request(app)
+        .post("/identify")
+        .send({ image: testImageBase64 })
+        .expect(res => {
+          expect(res.body.identity).toEqual(expect.any(String));
+        })
+        .expect(200, done);
     });
   });
 });
