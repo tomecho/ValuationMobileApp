@@ -28,4 +28,13 @@ describe("app", () => {
         .expect(200, done);
     });
   });
+
+  describe("identify", () => {
+    it("returns 400 if the image is missing", done => {
+      return request(app)
+        .post("/identify")
+        .send({ })
+        .expect(400, done)
+    });
+  });
 });
