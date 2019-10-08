@@ -31,7 +31,7 @@ export default class App extends React.Component {
   }
 
   componentDidUpdate() {
-    if (this.state.base64Image) {
+    if (this.state.base64Image && !this.state.prediction) {
       identify(this.state.base64Image)
         .then(prediction => {
           this.setState({ prediction });

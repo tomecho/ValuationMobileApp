@@ -4,7 +4,7 @@ import { valuate } from "./services/valuate";
 import { identifyRequest } from "./services/identity";
 
 export const app = express();
-app.use(express.json());
+app.use(express.json({ limit: "15mb" }));
 
 app.post("/valuate", (req, res) => {
   if (!req.body.identity) {
