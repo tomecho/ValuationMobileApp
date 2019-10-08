@@ -4,6 +4,7 @@ A simple react native mobile api that gives the user a rough estimate of what th
 ## Tools used
 * react native - builds native apps in javascript
 * expo - simplifies react native development
+* express - for a simple http api to abstract over the necessary api's for security reasons
 * clarifai - identifies images
 * ebay api - values things
 
@@ -12,16 +13,12 @@ A simple react native mobile api that gives the user a rough estimate of what th
 react native app that does image selection and upload
 
 ### server
-express app that basically wraps ebay node api to protect credentials and access to ebay api. eventually should do the same for clarifai
+express app that basically wraps ebay and clarifai libaries to protect credentials and access.
 
 ## Getting it started
 ### Creating secrets
 To keep some sensitive credentials confidential (not pushed up to github) there are a few files that need to be created.
-1. mobile/secrets.js
-```javascript
-const clarifaiApiKey = "the_key";
-```
-2. server/src/secrets.ts
+* server/src/secrets.ts
 ```javascript
 const ebayCredentials = {
   production: {
@@ -29,6 +26,7 @@ const ebayCredentials = {
     certId: "certid"
   }
 }
+const clarifaiApiKey = "the_key";
 ```
 ### Starting it up
 * server 
